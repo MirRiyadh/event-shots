@@ -7,7 +7,7 @@ import React, { useContext, useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import image from "../../assets/photos/Wavy_Tech-28_Single-10.jpg";
+import image from "../../assets/photos/Wavy_Tech-28_Single-10-min.jpg";
 
 const Register = () => {
   const { createUser, providerSignIn, updateUserProfile } =

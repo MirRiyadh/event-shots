@@ -2,21 +2,22 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUser, FaMoon } from "react-icons/fa";
 import { BsSunFill } from "react-icons/bs";
+import { AuthContext } from "../../contexts/AuthProvider";
+import "./Header.css";
 
 const Header = () => {
-  // const { user, logOut } = useContext(AuthContext);
-  // const [changeColor, setChangeColor] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
 
-  // const handleLogout = () => {
-  //   logOut()
-  //     .then(() => {})
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
-    <div className="bg-gradient-to-l from-sky-200 via-sky-300 to-sky-200 shadow-md">
+    <div className="bg-slate-800 shadow-md text-white">
       <div className="navbar  lg:w-3/4 m-auto">
         <div className="navbar-start w-12/12">
           <div className="dropdown">
@@ -38,7 +39,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
             >
               <li>
                 <Link to="/home">Home</Link>
@@ -57,11 +58,11 @@ const Header = () => {
               </li>
               <hr />
 
-              {/* {user?.uid ? (
+              {user?.uid ? (
                 <div className="mt-2">
                   <button
                     onClick={handleLogout}
-                    className="px-4 py-1 bg-slate-200 rounded-md hover:bg-slate-300 font-semibold"
+                    className="px-4 py-1 bg-slate-900 rounded-md hover:bg-slate-300 font-semibold "
                   >
                     Logout
                   </button>
@@ -75,7 +76,7 @@ const Header = () => {
                     <Link to="/register">Register</Link>
                   </li>
                 </>
-              )} */}
+              )}
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl pl-0">
@@ -98,47 +99,25 @@ const Header = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-            {/* {user?.uid ? (
+
+            {user?.uid ? (
               <></>
             ) : (
               <li>
                 <Link to="/register">Register</Link>
               </li>
-            )} */}
+            )}
           </ul>
         </div>
 
         {/* //user display option */}
         <div className="navbar-end">
-          <div className="mr-3">
-            {/* {changeColor ? (
-              <button
-                title="Dark Mode"
-                onClick={() => setChangeColor(!changeColor)}
-                className="px-2 py-2 bg-slate-900 text-white rounded-full "
-              >
-                <FaMoon />
-              </button>
-            ) : (
-              <button
-                title="Light Mode"
-                onClick={() => setChangeColor(!changeColor)}
-                className="px-2 py-2 bg-white  rounded-full"
-              >
-                <BsSunFill></BsSunFill>
-              </button>
-            )} */}
-          </div>
-
-          {/* {user?.uid ? (
+          {user?.uid ? (
             <>
               <div>
                 <button
                   onClick={handleLogout}
-                  className="px-2 py-1 bg-slate-100 rounded-md hover:bg-slate-300 font-semibold"
+                  className="px-2 py-1 bg-slate-100 rounded-md hover:bg-rose-400 font-semibold text-black hover:text-white"
                 >
                   Logout
                 </button>
@@ -157,15 +136,15 @@ const Header = () => {
           ) : (
             <>
               <Link to="/login">
-                <button className="px-4 py-1 bg-slate-100 rounded-md hover:bg-slate-300 mr-3">
+                <button className="px-4 py-1 bg-slate-100 rounded-md hover:bg-slate-300 mr-3 text-black">
                   Login
                 </button>
               </Link>
-              <div>
-                <FaUser></FaUser>
+              <div className="p-2 bg-white rounded-full">
+                <FaUser className="text-black"></FaUser>
               </div>
             </>
-          )} */}
+          )}
         </div>
       </div>
     </div>
