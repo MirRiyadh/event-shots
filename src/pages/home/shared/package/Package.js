@@ -11,7 +11,7 @@ const Package = () => {
   }, []);
   return (
     <div className="my-12 lg:my-20">
-      <div className=" w-11/12 lg:w-8/12 mx-auto ">
+      <div className=" w-11/12 lg:w-9/12 mx-auto ">
         <div className="my-8 lg:my-16">
           <p className="text-amber-500 font-semibold">CATEGORIES</p>
           <h1 className="text-5xl font-semibold text-blue-800">
