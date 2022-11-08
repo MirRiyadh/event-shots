@@ -20,7 +20,7 @@ const Subscribe = () => {
                     placeholder="Enter your email"
                   />
                   <button className="w-full m-1 p-2 text-sm bg-sky-400 hover:bg-sky-500 text-white rounded-lg font-semibold uppercase lg:w-auto">
-                    subscribe
+                    join
                   </button>
                 </div>
               </div>
