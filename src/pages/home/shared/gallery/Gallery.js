@@ -8,7 +8,7 @@ import gallery6 from "../../../../assets/gallery/gallery6.jpg";
 
 const Gallery = () => {
   return (
-    <div className=" my-24 bg-gray-100 py-12">
+    <div className=" mt-24 mb-10 md:mb-24 bg-gray-100 py-12">
       <div className="mb-10  w-11/12 lg:w-9/12 mx-auto">
         <p className="text-amber-500 font-semibold">Gallery</p>
         <h1 className="text-5xl font-semibold text-blue-800">
