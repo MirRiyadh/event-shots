@@ -47,7 +47,7 @@ const ServiceItems = ({ service }) => {
             className="py-2 px-8 bg-amber-400 mt-4 rounded-md font-semibold hover:bg-amber-500 text-white uppercase flex items-center"
           >
             <FaBook className="mr-1" />
-            <Link to={`/services-details/${_id}`}>View details</Link>
+            <Link to={`/services/${_id}`}>View details</Link>
           </button>
         </div>
       </div>

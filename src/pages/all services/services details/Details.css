@@ -1,0 +1,35 @@
+.img-container {
+  box-shadow: 4px 4px 8px rgb(226, 226, 226);
+  border-radius: 5px;
+
+  background-image: url(../../../assets/photos/cover.jpg);
+  height: 210px;
+  background-repeat: no-repeat;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 70%;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+@media only screen and (min-width: 577px) and (max-width: 992px) {
+  .card-container {
+    width: 90%;
+  }
+  .img-container {
+    height: 180px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .img-container {
+    height: 150px;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+    width: 95%;
+  }
+}
