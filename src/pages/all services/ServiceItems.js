@@ -7,6 +7,9 @@ import {
   FaRegCaretSquareRight,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+
+import "react-photo-view/dist/react-photo-view.css";
 
 const ServiceItems = ({ service }) => {
   const { img, name, _id, description, favourite, price } = service;
@@ -17,7 +20,11 @@ const ServiceItems = ({ service }) => {
   return (
     <div className="card  bg-base-100 border shadow-sm hover:shadow-xl transition ease-in-out delay-100 cursor-pointer">
       <figure className="px-8 pt-10">
-        <img src={img} alt="Shoes" className="rounded-xl" />
+        <PhotoProvider>
+          <PhotoView src={img}>
+            <img src={img} alt="Shoes" className="rounded-xl" />
+          </PhotoView>
+        </PhotoProvider>
       </figure>
       <div className="p-4 card-body items-center text-center">
         <h2 className="text-2xl font-semibold text-blue-800">{name}</h2>
@@ -40,7 +47,7 @@ const ServiceItems = ({ service }) => {
             className="py-2 px-8 bg-amber-400 mt-4 rounded-md font-semibold hover:bg-amber-500 text-white uppercase flex items-center"
           >
             <FaBook className="mr-1" />
-            <Link>View details</Link>
+            <Link to={`/services-details/${_id}`}>View details</Link>
           </button>
         </div>
       </div>

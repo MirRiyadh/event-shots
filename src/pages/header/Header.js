@@ -45,7 +45,7 @@ const Header = () => {
                 <Link to="/home">Home</Link>
               </li>
               <li>
-                <Link to="/courses">Courses</Link>
+                <Link to="/services">Services</Link>
               </li>
               <li>
                 <Link to="/reviews">Reviews</Link>
@@ -54,15 +54,16 @@ const Header = () => {
                 <Link to="/blog">Blog</Link>
               </li>
               <li>
-                <Link to="/register">Register</Link>
+                <Link to="/add-services">Add Services</Link>
               </li>
+
               <hr />
 
               {user?.uid ? (
                 <div className="mt-2">
                   <button
                     onClick={handleLogout}
-                    className="px-4 py-1 bg-slate-900 rounded-md hover:bg-slate-300 font-semibold "
+                    className="px-4 py-1 bg-slate-200 rounded-md hover:bg-slate-300 font-semibold "
                   >
                     Logout
                   </button>
@@ -98,6 +99,9 @@ const Header = () => {
             </li>
             <li>
               <Link to="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link to="/add-services">Add Services</Link>
             </li>
 
             {user?.uid ? (
