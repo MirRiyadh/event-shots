@@ -28,7 +28,7 @@ const Package = () => {
         </div>
         <div className="text-center my-8 lg:my-16 ">
           <button className="rounded-lg bg-amber-400 px-8 py-2 font-bold hover:bg-amber-500 ">
-            See More
+            See All
           </button>
         </div>
       </div>

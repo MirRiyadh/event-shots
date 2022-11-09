@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div>
       <div className="mt-16">
-        <div className=" bg-gradient-to-b from-indigo-200 to-indigo-200 ">
+        <div className=" bg-gradient-to-b from-indigo-100 to-indigo-100 ">
           <div className="max-w-xl mx-auto text-black py-10">
             <div className="text-center">
               <h3 className="text-3xl mb-3 font-bold"> EVENTSHOTS </h3>

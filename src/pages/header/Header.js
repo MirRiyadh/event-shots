@@ -48,7 +48,7 @@ const Header = () => {
                 <Link to="/courses">Courses</Link>
               </li>
               <li>
-                <Link to="/about-us">About</Link>
+                <Link to="/reviews">Reviews</Link>
               </li>
               <li>
                 <Link to="/blog">Blog</Link>
@@ -88,13 +88,13 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal p-0 font-bold">
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/courses">Courses</Link>
             </li>
             <li>
-              <Link to="/about-us">About</Link>
+              <Link to="/reviews">Reviews</Link>
             </li>
             <li>
               <Link to="/blog">Blog</Link>
