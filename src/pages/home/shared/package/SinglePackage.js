@@ -5,7 +5,7 @@ const SinglePackage = ({ singlePackage }) => {
   const { img, name } = singlePackage;
   console.log(singlePackage);
   return (
-    <div className="card w-full bg-base-100 shadow-sm hover:shadow-2xl transition ease-in-out delay-100 cursor-pointer text-center border">
+    <div className="card w-full bg-base-100 shadow-md  text-center border">
       <figure>
         <img src={img} alt="package" />
       </figure>

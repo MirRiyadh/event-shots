@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SinglePackage from "./SinglePackage";
 import { FaRegPlusSquare } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Package = () => {
   const [packages, setPackages] = useState([]);
@@ -28,7 +29,7 @@ const Package = () => {
         </div>
         <div className="text-center my-8 lg:my-16 ">
           <button className="rounded-lg bg-amber-400 px-8 py-2 font-bold hover:bg-amber-500 ">
-            See All
+            <Link to="/services">See All</Link>
           </button>
         </div>
       </div>
