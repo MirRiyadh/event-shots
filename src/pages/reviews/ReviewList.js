@@ -1,19 +1,16 @@
 import React from "react";
 import { FaPen, FaStar } from "react-icons/fa";
 
-const ReviewList = ({ reviews }) => {
+const ReviewList = ({ reviews, handleDelete }) => {
   const { img, serviceName, message, ratings, userName, user_img, _id } =
     reviews;
   console.log(reviews);
 
-  const handledelete = (id) => {
-    console.log(id);
-  };
   return (
     <div className="grid grid-cols-4 border w-10/12 lg:w-6/12 m-auto p-2 flex items-center justify-center text-center mb-4 rounded-lg md:text-left">
       <div>
         <button
-          onClick={() => handledelete(_id)}
+          onClick={() => handleDelete(_id)}
           className="px-2 bg-slate-400 font-bold text-white hover:bg-red-500 ml-12"
         >
           X

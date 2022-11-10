@@ -12,26 +12,26 @@ const Reviews = () => {
       .then((data) => setReviews(data));
   }, [user?.email]);
 
-  // const handleDelete = (id) => {
-  //   const proceed = window.confirm("Are you sure, cancel this reviews? ");
-  //   if (proceed) {
-  //     fetch(`http://localhost:5000/reviews/${id}`, {
-  //       method: "DELETE",
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //         if (data.deletedCount > 0) {
-  //           alert("deleted successfully");
-  //           const remaining = reviews.filter((odr) => odr._id !== id);
-  //           setReviews(remaining);
-  //         }
-  //       });
-  //   }
-  // };
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure, Delete this review? ");
+    if (proceed) {
+      fetch(`http://localhost:5000/reviews/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert("deleted successfully");
+            const remaining = reviews.filter((odr) => odr._id !== id);
+            setReviews(remaining);
+          }
+        });
+    }
+  };
 
   // const handleUpdate = (id) => {
-  //   const proceed = window.confirm("Are you sure? ");
+  // const proceed = window.confirm("Are you sure? ");
   //   if (proceed) {
   //     fetch(`http://localhost:5000/reviews/${id}`, {
   //       method: "PATCH",
@@ -59,20 +59,25 @@ const Reviews = () => {
 
   return (
     <div>
-      <h1>review: {reviews.length}</h1>
       <h1 className="text-5xl my-4 text-center mb-8 underline text-blue-900">
         My review
       </h1>
-      <div className="overflow-x-auto w-full">
-        {reviews?.map((reviews) => (
-          <ReviewList
-            key={reviews._id}
-            reviews={reviews}
-            // handleDelete={handleDelete}
-            // handleUpdate={handleUpdate}
-          ></ReviewList>
-        ))}
-      </div>
+      {reviews.length === 0 ? (
+        <div className="border w-11/12 md:w-8/12 lg:w-4/12 m-auto text-center text-3xl font-bold p-8 text-gray-500">
+          No reviews found
+        </div>
+      ) : (
+        <div className="overflow-x-auto w-full">
+          {reviews?.map((reviews) => (
+            <ReviewList
+              key={reviews._id}
+              reviews={reviews}
+              handleDelete={handleDelete}
+              // handleUpdate={handleUpdate}
+            ></ReviewList>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
