@@ -24,8 +24,8 @@ const Banner = () => {
             </div>
 
             <div className="absolute flex justify-between transform -translate-y-1/2 left-28 md:left-36 lg:left-56 top-1/4 pt-56 md:pt-60 lg:pt-72">
-              <button className="py-2 px-5 bg-rose-600 hover:bg-white font-bold hover:text-black">
-                See our Package
+              <button className="py-2 px-5 bg-amber-500 rounded-md hover:bg-white font-bold hover:text-black">
+                See our Services
               </button>
             </div>
 

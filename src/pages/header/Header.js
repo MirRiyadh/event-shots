@@ -7,6 +7,7 @@ import "./Header.css";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user);
 
   const handleLogout = () => {
     logOut()
@@ -47,27 +48,29 @@ const Header = () => {
               <li>
                 <Link to="/services">Services</Link>
               </li>
-              <li>
-                <Link to="/reviews">Reviews</Link>
-              </li>
+
               <li>
                 <Link to="/blog">Blog</Link>
               </li>
-              <li>
-                <Link to="/add-services">Add Services</Link>
-              </li>
-
-              <hr />
 
               {user?.uid ? (
-                <div className="mt-2">
-                  <button
-                    onClick={handleLogout}
-                    className="px-4 py-1 bg-slate-200 rounded-md hover:bg-slate-300 font-semibold "
-                  >
-                    Logout
-                  </button>
-                </div>
+                <>
+                  <li>
+                    <Link to="/reviews">My Reviews</Link>
+                  </li>
+                  <li>
+                    <Link to="/add-services">Add Services</Link>
+                  </li>
+                  <hr />
+                  <div className="mt-2">
+                    <button
+                      onClick={handleLogout}
+                      className="px-4 py-1 bg-slate-200 rounded-md hover:bg-slate-300 font-semibold "
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </>
               ) : (
                 <>
                   <li>
@@ -94,18 +97,20 @@ const Header = () => {
             <li>
               <Link to="/services">Services</Link>
             </li>
-            <li>
-              <Link to="/reviews">Reviews</Link>
-            </li>
+
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            <li>
-              <Link to="/add-services">Add Services</Link>
-            </li>
 
             {user?.uid ? (
-              <></>
+              <>
+                <li>
+                  <Link to="/reviews">My Reviews</Link>
+                </li>
+                <li>
+                  <Link to="/add-services">Add services</Link>
+                </li>
+              </>
             ) : (
               <li>
                 <Link to="/register">Register</Link>

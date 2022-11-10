@@ -9,6 +9,7 @@ import {
 import { FaPhone, FaRegClock } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import "./Details.css";
+import DetailsReviews from "./DetailsReviews";
 
 const ServicesDeatils = () => {
   const serviceDeatils = useLoaderData();
@@ -21,7 +22,10 @@ const ServicesDeatils = () => {
     img,
     description,
     Photographer,
+    reviews,
+    _id,
   } = serviceDeatils;
+
   return (
     <div>
       <div className="img-container ">
@@ -108,6 +112,22 @@ const ServicesDeatils = () => {
       </div>
 
       {/* this is review section */}
+      <div className="text-center text-3xl font-semibold mb-4 underline text-blue-900">
+        <h1>Review</h1>
+      </div>
+      {reviews ? (
+        <div>
+          {reviews?.map((review) => (
+            <DetailsReviews key={review.num} review={review}></DetailsReviews>
+          ))}
+        </div>
+      ) : (
+        <div className="border w-8/12 m-auto text-center h-32 ">
+          <h1 className="pt-12 font-semibold text-2xl text-gray-500">
+            No reviews yet
+          </h1>
+        </div>
+      )}
     </div>
   );
 };

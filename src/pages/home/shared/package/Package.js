@@ -16,7 +16,7 @@ const Package = () => {
         <div className="my-8 lg:my-16">
           <p className="text-amber-500 font-semibold">CATEGORIES</p>
           <h1 className="text-5xl font-semibold text-blue-800">
-            Popular Packages
+            Popular Services
           </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10">
