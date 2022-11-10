@@ -1,4 +1,5 @@
 import React from "react";
+import useTitle from "../../hooks/useTitle";
 import Banner from "./shared/Banner/Banner";
 import Choose from "./shared/choose/Choose";
 import Gallery from "./shared/gallery/Gallery";
@@ -7,6 +8,7 @@ import Package from "./shared/package/Package";
 import Subscribe from "./shared/subscribe/Subscribe";
 
 const Home = () => {
+  useTitle("Home");
   return (
     <div>
       <Banner></Banner>

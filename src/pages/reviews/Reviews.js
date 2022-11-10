@@ -1,22 +1,36 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import ReviewList from "./ReviewList";
 
 const Reviews = () => {
-  const { user } = useContext(AuthContext);
+  useTitle("My reviews");
+  const { user, logOut } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("eventshots-token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          return logOut().then().catch();
+        }
+        return res.json();
+      })
       .then((data) => setReviews(data));
-  }, [user?.email]);
+  }, [user?.email, logOut]);
 
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, Delete this review? ");
     if (proceed) {
       fetch(`http://localhost:5000/reviews/${id}`, {
         method: "DELETE",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("eventshots-token")}`,
+        },
       })
         .then((res) => res.json())
         .then((data) => {
@@ -29,33 +43,6 @@ const Reviews = () => {
         });
     }
   };
-
-  // const handleUpdate = (id) => {
-  // const proceed = window.confirm("Are you sure? ");
-  //   if (proceed) {
-  //     fetch(`http://localhost:5000/reviews/${id}`, {
-  //       method: "PATCH",
-  //       headers: {
-  //         "content-type": "application/json",
-  //         authorization: `Bearer ${localStorage.getItem("genius-token")}`,
-  //       },
-  //       body: JSON.stringify({ status: "Apporoved" }),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //         if (data.modifiedCount > 0) {
-  //           alert("deleted successfully");
-  //           const remaining = reviews.filter((odr) => odr._id !== id);
-  //           const approving = reviews.find((odr) => odr._id === id);
-  //           approving.status = "Apporevd";
-
-  //           const newreviews = [approving, ...remaining];
-  //           setReviews(newreviews);
-  //         }
-  //       });
-  //   }
-  // };
 
   return (
     <div>
@@ -73,7 +60,6 @@ const Reviews = () => {
               key={reviews._id}
               reviews={reviews}
               handleDelete={handleDelete}
-              // handleUpdate={handleUpdate}
             ></ReviewList>
           ))}
         </div>

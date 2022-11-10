@@ -1,7 +1,8 @@
 import React from "react";
 import { FaPen, FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const ReviewList = ({ reviews, handleDelete }) => {
+const ReviewList = ({ reviews, handleDelete, handleUpdate }) => {
   const { img, serviceName, message, ratings, userName, user_img, _id } =
     reviews;
   console.log(reviews);
@@ -11,7 +12,7 @@ const ReviewList = ({ reviews, handleDelete }) => {
       <div>
         <button
           onClick={() => handleDelete(_id)}
-          className="px-2 bg-slate-400 font-bold text-white hover:bg-red-500 ml-12"
+          className="px-2 bg-slate-400 font-bold text-white hover:bg-red-500 md:ml-12"
         >
           X
         </button>
@@ -23,15 +24,18 @@ const ReviewList = ({ reviews, handleDelete }) => {
           {ratings} <FaStar className="ml-1 text-amber-500" />
         </p>
         <div className="flex items-center">
-          <img className="h-6 rounded-full" src={user_img} alt="" />
+          <img className="h-6 w-6 rounded-full" src={user_img} alt="" />
           <p className="font-semibold ml-2">{userName}</p>
         </div>
       </div>
       <div>
-        {" "}
-        <button className="pl-12 md:pl-32">
-          <FaPen className="hover:text-emerald-500" />
-        </button>
+        <div className="pl-12 md:pl-32">
+          <button>
+            <Link to={`/update-review/${_id}`}>
+              <FaPen className="hover:text-emerald-500" />
+            </Link>
+          </button>
+        </div>
       </div>
     </div>
   );

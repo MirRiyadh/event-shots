@@ -1,10 +1,12 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import ServiceItems from "./ServiceItems";
 
 const Services = () => {
   const services = useLoaderData();
-  console.log(services);
+
+  useTitle("Services");
   return (
     <div className="b w-11/12  lg:w-8/12 m-auto">
       <div>

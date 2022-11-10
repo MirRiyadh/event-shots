@@ -4,6 +4,7 @@ import { FaUser, FaMoon } from "react-icons/fa";
 import { BsSunFill } from "react-icons/bs";
 import { AuthContext } from "../../contexts/AuthProvider";
 import "./Header.css";
+import logo from "../../assets/logo/onlinelogomaker-111022-1839-5015-2000-transparent.png";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <div className="bg-slate-800 shadow-md text-white">
+    <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 shadow-md text-white uppercase">
       <div className="navbar  lg:w-3/4 m-auto">
         <div className="navbar-start w-12/12">
           <div className="dropdown">
@@ -40,7 +41,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black "
             >
               <li>
                 <Link to="/home">Home</Link>
@@ -65,7 +66,7 @@ const Header = () => {
                   <div className="mt-2">
                     <button
                       onClick={handleLogout}
-                      className="px-4 py-1 bg-slate-200 rounded-md hover:bg-slate-300 font-semibold "
+                      className="px-4 py-1 bg-slate-200 rounded-md hover:bg-slate-300 font-semibold uppercase"
                     >
                       Logout
                     </button>
@@ -84,7 +85,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl pl-0">
-            <img src="" className="w-32 h-6 md:w-52  md:h-8" />
+            <img src={logo} className="w-32 h-6 md:w-52  md:h-8" />
           </Link>
         </div>
 
@@ -126,7 +127,7 @@ const Header = () => {
               <div>
                 <button
                   onClick={handleLogout}
-                  className="px-2 py-1 bg-slate-100 rounded-md hover:bg-rose-400 font-semibold text-black hover:text-white"
+                  className="px-2 py-1 bg-slate-100 rounded-md hover:bg-amber-400 font-semibold text-black hover:text-white uppercase"
                 >
                   Logout
                 </button>

@@ -1,24 +1,23 @@
 import React from "react";
+import logo from "../../assets/logo/onlinelogomaker-111022-1839-5015-2000-transparent.png";
 
 const Footer = () => {
   return (
     <div>
       <div className="mt-16">
-        <div className=" bg-gradient-to-b from-indigo-100 to-indigo-100 ">
+        <div className=" bg-gradient-to-b from-sky-300 to-blue-700 ">
           <div className="max-w-xl mx-auto text-black py-10">
             <div className="text-center">
-              <h3 className="text-3xl mb-3 font-bold"> EVENTSHOTS </h3>
-              <p> Capture and hold your memories. </p>
+              {/* <h3 className="text-3xl mb-3 font-bold"> EVENTSHOTS </h3> */}
+              <p className="font-semibold capitalize">
+                {" "}
+                Capture and hold your memories.{" "}
+              </p>
               <div className="flex justify-center my-10">
-                <div className="flex items-center border w-auto rounded-lg px-4 py-2 w-52 mx-2">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/888/888857.png"
-                    className="w-7 md:w-8"
-                  />
-                  <div className="text-left ml-3">
-                    <p className="text-xs text-black ">Download on </p>
-                    <p className="text-sm md:text-base"> Google Play Store </p>
-                  </div>
+                <div className="flex items-center justify-center text-center px-4 py-2 w-52 mx-2">
+                  <h3 className="uppercase font-bold text-yellow-300 text-5xl">
+                    Eventshots
+                  </h3>
                 </div>
               </div>
             </div>

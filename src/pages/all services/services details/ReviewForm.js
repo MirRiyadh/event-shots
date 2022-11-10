@@ -8,7 +8,7 @@ const ReviewForm = () => {
   const { _id, img, price, name } = details;
   const { user } = useContext(AuthContext);
 
-  const handlePlaceOrder = (event) => {
+  const handleReviews = (event) => {
     event.preventDefault();
     const form = event.target;
 
@@ -39,6 +39,8 @@ const ReviewForm = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+
+        authorization: `Bearer ${localStorage.getItem("eventshots-token")}`,
       },
       body: JSON.stringify(reviews),
     })
@@ -57,7 +59,7 @@ const ReviewForm = () => {
 
   return (
     <div className="border w-11/12 md:w-8/12 lg:w-4/12 m-auto mt-12 p-2 shadow-md border-amber-500 rounded-lg">
-      <form onSubmit={handlePlaceOrder}>
+      <form onSubmit={handleReviews}>
         <h2 className="text-2xl text-blue-900 font-semibold mb-2">
           **Write a review{" "}
         </h2>
