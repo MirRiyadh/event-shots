@@ -9,11 +9,14 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("eventshots-token")}`,
-      },
-    })
+    fetch(
+      `https://react-assignment-eleven-server.vercel.app/reviews?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("eventshots-token")}`,
+        },
+      }
+    )
       .then((res) => {
         if (res.status === 401 || res.status === 403) {
           return logOut().then().catch();
@@ -26,7 +29,7 @@ const Reviews = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, Delete this review? ");
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://react-assignment-eleven-server.vercel.app/reviews/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("eventshots-token")}`,

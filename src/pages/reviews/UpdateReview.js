@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const UpdateReview = () => {
@@ -14,16 +15,21 @@ const UpdateReview = () => {
       message: messageOld,
     };
 
-    fetch(`http://localhost:5000/reviews/${reviewUpdate._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(review),
-    })
+    fetch(
+      `https://react-assignment-eleven-server.vercel.app/${reviewUpdate._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(review),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Review update successfully", { autoClose: 500 });
+        }
       });
   };
   return (

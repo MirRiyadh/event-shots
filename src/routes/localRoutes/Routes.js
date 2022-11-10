@@ -32,7 +32,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/add-services",
-        element: <AddServices></AddServices>,
+        element: (
+          <PrivateRoute>
+            <AddServices></AddServices>
+          </PrivateRoute>
+        ),
+        loader: async () =>
+          fetch("https://react-assignment-eleven-server.vercel.app/services"),
       },
       {
         path: "/blog",
@@ -50,18 +56,23 @@ export const router = createBrowserRouter([
         path: "/services/:id",
         element: <ServicesDeatils></ServicesDeatils>,
         loader: async ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://react-assignment-eleven-server.vercel.app/${params.id}`
+          ),
       },
       {
         path: "/update-review/:id",
         element: <UpdateReview></UpdateReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/${params.id}`),
+          fetch(
+            `https://react-assignment-eleven-server.vercel.app/${params.id}`
+          ),
       },
       {
         path: "/services",
         element: <Services></Services>,
-        loader: async () => fetch("http://localhost:5000/services"),
+        loader: async () =>
+          fetch("https://react-assignment-eleven-server.vercel.app/services"),
       },
     ],
   },

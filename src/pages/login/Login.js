@@ -34,7 +34,7 @@ const Login = () => {
         console.log(currentUser);
 
         //jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://react-assignment-eleven-server.vercel.app/jwt", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(currentUser),
@@ -63,7 +63,7 @@ const Login = () => {
         console.log(currentUser);
 
         //jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://react-assignment-eleven-server.vercel.app/jwt", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(currentUser),
@@ -92,7 +92,7 @@ const Login = () => {
         console.log(currentUser);
 
         //jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://react-assignment-eleven-server.vercel.app/jwt", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(currentUser),
@@ -128,7 +128,7 @@ const Login = () => {
         console.log(currentUser);
 
         //jwt token
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://react-assignment-eleven-server.vercel.app/jwt", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(currentUser),
