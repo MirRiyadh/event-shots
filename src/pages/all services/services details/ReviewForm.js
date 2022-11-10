@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthProvider";
 
@@ -6,32 +7,52 @@ const ReviewForm = () => {
   const details = useLoaderData();
   const { _id, img, price, name } = details;
   const { user } = useContext(AuthContext);
-  console.log(details);
 
   const handlePlaceOrder = (event) => {
     event.preventDefault();
     const form = event.target;
 
-    const customerName = form.name.value;
+    const userName = form.name.value;
     const ratings = form.ratings.value;
     const email = user?.email || "unregister";
     const message = form.message.value;
-    console.log(customerName, ratings, email, message);
-
-    if (ratings === 5) {
-      alert("ratings number should be less than 5 digit");
-      return;
-    }
+    console.log(userName, ratings, email, message, user.photoURL);
 
     const reviews = {
       service: _id,
       serviceName: name,
       price,
-      customer: customerName,
+      userName: userName,
       email,
       ratings,
       message,
+      img,
+      user_img: user.photoURL,
     };
+
+    if (ratings > 5) {
+      toast.error("Rating should be less than 5", { autoClose: 800 });
+      return;
+    }
+
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviews),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success(
+            "Review added successfully, Go-to see My reviews to see all reviews",
+            { autoClose: 500 }
+          );
+          form.reset();
+        }
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
