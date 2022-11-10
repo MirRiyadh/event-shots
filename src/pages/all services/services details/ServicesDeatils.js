@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   BsClockFill,
   BsCurrencyDollar,
@@ -7,11 +7,14 @@ import {
   BsHeart,
 } from "react-icons/bs";
 import { FaPhone, FaRegClock } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 import "./Details.css";
 import DetailsReviews from "./DetailsReviews";
+import ReviewForm from "./ReviewForm";
 
 const ServicesDeatils = () => {
+  const { user } = useContext(AuthContext);
   const serviceDeatils = useLoaderData();
   const {
     name,
@@ -95,7 +98,7 @@ const ServicesDeatils = () => {
 
       {/* extra feature */}
       <div className="text-center my-16">
-        <h1 className="text-5xl font-semibold text-sky-800 mb-2">ADD ON</h1>
+        <h1 className="text-5xl font-semibold text-blue-900 mb-2">ADD ON</h1>
         <hr className=" w-11/12 lg:w-8/12 mx-auto pb-2" />
         <p className="md:text-2xl text-gray-500 mb-2 font-semibold">
           # Add 50 dollar more for 50 copy 4R Size Printed Hard copy.
@@ -128,6 +131,25 @@ const ServicesDeatils = () => {
           </h1>
         </div>
       )}
+      <div>
+        {user ? (
+          <>
+            <ReviewForm></ReviewForm>
+          </>
+        ) : (
+          <>
+            <div className="border w-11/12 md:w-8/12 lg:w-4/12 m-auto text-center p-2  border-blue-500 rounded-md shadow-lg">
+              {" "}
+              <h1 className="text-2xl capitalize font-semibold mb-2">
+                please login to add reviews
+              </h1>
+              <button className="py-2 px-6 bg-sky-500 rounded-md text-white font-semibold ">
+                <Link to="/login">login</Link>
+              </button>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
