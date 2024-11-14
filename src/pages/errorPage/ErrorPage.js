@@ -8,7 +8,7 @@ const ErrorPage = () => {
         <div className="text-red-500 font-bold text-7xl">404</div>
 
         <div className="font-bold text-3xl xl:text-7xl lg:text-6xl md:text-5xl mt-10 capitalize">
-          This page does not exist
+          This page does not exist at all
         </div>
 
         <div className="text-gray-400 font-medium text-sm md:text-xl lg:text-2xl mt-8 capitalize">
